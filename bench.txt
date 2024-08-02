@@ -1,0 +1,27 @@
+cat
+```
+λonebrc on  main [+1..] > time cat measurement_data.txt > /dev/null
+real 1.44
+user 0.00
+sys 1.44
+```
+
+wc -l
+```
+λonebrc on  main [+1..] > time wc -l measurement_data.txt 
+1000000000 measurement_data.txt
+real 1.99
+user 0.15
+sys 1.83
+```
+
+scan lines
+```
+λonebrc on  main [+1..] > just run
+odin build . -o:aggressive && time ./onebrc measurement_data.txt
+1000000000
+
+real	0m16.653s
+user	0m14.963s
+sys	0m1.688s
+```
