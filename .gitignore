@@ -1,4 +1,6 @@
 measurement_data.txt
 onebrc
+onebrc-zig
+onebrc-zig.*
 .direnv
 .envrc
