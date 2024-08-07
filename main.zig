@@ -10,13 +10,11 @@ pub fn main() !void {
     const input = brdr.reader();
 
     var idx: usize = 0;
-    var buf: [64]u8 = undefined;
     while (true) {
-        const line_maybe = try input.readUntilDelimiterOrEof(&buf, '\n');
-        if (line_maybe) |_| {
-            idx += 1;
-        } else {
-            break;
+        const c = input.readByte() catch return;
+        switch (c) {
+            '\n' => idx += 1,
+            else => continue,
         }
     }
     std.debug.print("{d}\n", .{idx});

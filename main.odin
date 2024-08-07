@@ -8,15 +8,18 @@ main :: proc() {
 	path := os.args[1]
 	f, _ := os.open(path)
 	read_buf: [4096 * 8]u8
-	scanner: bufio.Scanner
-	bufio.scanner_init_with_buffer(&scanner, os.stream_from_handle(f), read_buf[:])
+	rdr: Reader
+	reader_init_with_buf(&rdr, os.stream_from_handle(f), read_buf[:])
 
 	idx := 0
 	for {
-		if !bufio.scanner_scan(&scanner) {
+		c, berr := reader_read_byte(&rdr)
+		if berr != nil {
 			break
 		}
-		idx += 1
+		if c == '\n' {
+			idx += 1
+		}
 	}
 	fmt.println(idx)
 }
