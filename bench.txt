@@ -54,9 +54,9 @@ Benchmark 2 (3 runs): ./onebrc-zig measurement_data.txt
 
 First attempt:
 ```
-$ odin build . -o:aggressive -no-bounds-check -disable-assert && time ./onebrc measurement_data.txt
+$ odin build onebrc-0.odin -file -o:aggressive -no-bounds-check -disable-assert && time ./onebrc-0 measurement_data.txt
 ...
-real	0m53.923s
-user	0m52.249s
-sys	0m1.672s
+real	0m49.243s
+user	0m47.536s
+sys	0m1.704s`
 ```
