@@ -51,3 +51,12 @@ Benchmark 2 (3 runs): ./onebrc-zig measurement_data.txt
   cache_misses       44.3K  ± 3.92K     41.0K  … 48.6K           0 ( 0%)        ⚡- 93.9% ± 24.4%
   branch_misses       855K  ± 90.7       855K  …  855K           0 ( 0%)        ⚡- 99.9% ±  0.1%
 ```
+
+First attempt:
+```
+$ odin build . -o:aggressive -no-bounds-check -disable-assert && time ./onebrc measurement_data.txt
+...
+real	0m53.923s
+user	0m52.249s
+sys	0m1.672s
+```
